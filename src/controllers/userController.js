@@ -12,8 +12,8 @@ const response = (res, status, message, data = null) => {
 
 export const createUserService = async (req, res, next) => {
     try {
-        const { name, email } = req.body;
-        const newUser = await createUser(name, email);
+        const { name, email, password } = req.body;
+        const newUser = await createUser(name, email, password);
         response(res, 201, "User created successfully", newUser);
     } catch (error) {
         next(error);
